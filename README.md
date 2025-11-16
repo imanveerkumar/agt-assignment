@@ -31,9 +31,10 @@ A full-stack application built with Angular, Node.js, and PostgreSQL for managin
 Assignment/
 ├── backend/
 │   ├── config/
-│   │   └── database.js          # PostgreSQL connection
+│   │   ├── swagger.js
+│   │   └── prisma.js
 │   ├── middleware/
-│   │   └── auth.js              # JWT authentication
+│   │   └── auth.js
 │   ├── prisma/
 │   │   ├── migrations/
 │   │   └── schema.prisma
