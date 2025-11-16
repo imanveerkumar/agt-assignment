@@ -1,0 +1,9 @@
+name,price,category_id,image
+Laptop1,999.99,1,https://example.com/laptop.jpg
+Smartphone1,699.99,1,https://example.com/phone.jpg
+Tablet1,399.99,1,https://example.com/tablet.jpg
+Headphones1,199.99,1,https://example.com/headphones.jpg
+Keyboard1,79.99,1,https://example.com/keyboard.jpg
+Mouse1,29.99,1,https://example.com/mouse.jpg
+Monitor1,299.99,1,https://example.com/monitor.jpg
+Webcam1,89.99,1,https://example.com/webcam.jpg

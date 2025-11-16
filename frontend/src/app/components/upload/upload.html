@@ -1,0 +1,56 @@
+<div class="upload-container">
+  <div class="upload-card">
+    <h1>Bulk Product Upload</h1>
+    <p class="description">
+      Upload a CSV file to bulk import products. The CSV should have columns: name, price, category_id, image (optional)
+    </p>
+
+    <div class="upload-area" [class.dragover]="isDragging" (dragover)="onDragOver($event)" (dragleave)="onDragLeave($event)" (drop)="onDrop($event)">
+      <input
+        type="file"
+        id="fileInput"
+        accept=".csv"
+        (change)="onFileSelected($event)"
+        style="display: none"
+      />
+      <div *ngIf="!selectedFile" class="upload-placeholder">
+        <p>Drag and drop your CSV file here</p>
+        <p>or</p>
+        <button (click)="triggerFileInput()" class="btn btn-primary">Browse Files</button>
+      </div>
+      <div *ngIf="selectedFile" class="file-info">
+        <p><strong>Selected file:</strong> {{ selectedFile.name }}</p>
+        <p><strong>Size:</strong> {{ (selectedFile.size / 1024).toFixed(2) }} KB</p>
+        <button (click)="uploadFile()" [disabled]="uploading" class="btn btn-primary">
+          {{ uploading ? 'Uploading...' : 'Upload' }}
+        </button>
+        <button (click)="clearFile()" class="btn btn-secondary">Clear</button>
+      </div>
+    </div>
+
+    <div *ngIf="uploadResult" class="upload-result" [class.success]="uploadResult.success" [class.error]="!uploadResult.success">
+      <h3>{{ uploadResult.success ? 'Upload Successful!' : 'Upload Failed' }}</h3>
+      <p *ngIf="uploadResult.success">
+        Total Processed: {{ uploadResult.totalProcessed }}<br>
+        Successful: {{ uploadResult.successful }}<br>
+        Failed: {{ uploadResult.failed }}
+      </p>
+      <div *ngIf="uploadResult.errors && uploadResult.errors.length > 0" class="errors">
+        <h4>Errors:</h4>
+        <ul>
+          <li *ngFor="let error of uploadResult.errors">
+            Row {{ error.row }}: {{ error.error }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sample-section">
+      <h3>Sample CSV Format</h3>
+      <pre class="sample-csv">name,price,category_id,image
+Product 1,99.99,1,https://example.com/image1.jpg
+Product 2,149.99,1,https://example.com/image2.jpg
+Product 3,79.99,2,</pre>
+    </div>
+  </div>
+</div>

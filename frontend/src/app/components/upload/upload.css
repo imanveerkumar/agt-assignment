@@ -1,0 +1,94 @@
+.upload-container {
+  background: white;
+  border-radius: 8px;
+  padding: 2rem;
+}
+.upload-card {
+  max-width: 800px;
+  margin: 0 auto;
+}
+h1 {
+  margin-bottom: 1rem;
+}
+.description {
+  color: #666;
+  margin-bottom: 2rem;
+}
+.upload-area {
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  padding: 3rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  transition: all 0.3s;
+}
+.upload-area.dragover {
+  border-color: #667eea;
+  background: #f0f4ff;
+}
+.upload-placeholder p {
+  margin: 0.5rem 0;
+}
+.file-info {
+  text-align: left;
+}
+.file-info p {
+  margin: 0.5rem 0;
+}
+.btn {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin: 0.5rem;
+}
+.btn-primary {
+  background: #667eea;
+  color: white;
+}
+.btn-primary:hover:not(:disabled) {
+  background: #5568d3;
+}
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.btn-secondary {
+  background: #95a5a6;
+  color: white;
+}
+.upload-result {
+  padding: 1rem;
+  border-radius: 4px;
+  margin-bottom: 2rem;
+}
+.upload-result.success {
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+.upload-result.error {
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+.errors {
+  margin-top: 1rem;
+}
+.errors ul {
+  list-style: none;
+  padding: 0;
+}
+.errors li {
+  margin: 0.5rem 0;
+}
+.sample-section {
+  margin-top: 2rem;
+}
+.sample-csv {
+  background: #f8f9fa;
+  padding: 1rem;
+  border-radius: 4px;
+  overflow-x: auto;
+}

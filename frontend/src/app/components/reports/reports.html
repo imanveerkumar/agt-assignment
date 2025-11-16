@@ -1,0 +1,56 @@
+<div class="reports-container">
+  <div class="reports-card">
+    <h1>Product Reports</h1>
+    <p class="description">Generate and download product reports in CSV or XLSX format</p>
+
+    <div class="filters">
+      <div class="filter-group">
+        <label>Search</label>
+        <input
+          type="text"
+          [(ngModel)]="searchTerm"
+          placeholder="Search products or categories..."
+          class="filter-input"
+        />
+      </div>
+      <div class="filter-group">
+        <label>Category</label>
+        <select [(ngModel)]="selectedCategoryId" class="filter-select">
+          <option [value]="null">All Categories</option>
+          <option *ngFor="let cat of allCategories" [value]="cat.id">{{ cat.name }}</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Sort By</label>
+        <select [(ngModel)]="sortBy" class="filter-select">
+          <option value="created_at">Date</option>
+          <option value="price">Price</option>
+          <option value="name">Name</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Sort Order</label>
+        <select [(ngModel)]="sortOrder" class="filter-select">
+          <option value="DESC">Descending</option>
+          <option value="ASC">Ascending</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="download-section">
+      <h3>Download Report</h3>
+      <div class="download-buttons">
+        <button (click)="downloadReport('csv')" [disabled]="downloading" class="btn btn-primary btn-large">
+          {{ downloading === 'csv' ? 'Downloading CSV...' : 'Download CSV' }}
+        </button>
+        <button (click)="downloadReport('xlsx')" [disabled]="downloading" class="btn btn-primary btn-large">
+          {{ downloading === 'xlsx' ? 'Downloading XLSX...' : 'Download XLSX' }}
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="error" class="error-message">
+      {{ error }}
+    </div>
+  </div>
+</div>
